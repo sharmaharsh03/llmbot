@@ -12,7 +12,7 @@ from .models import DelRetailerUID,AWCode
 
 from django.core.cache import cache
 
-WHATSAPP_API_URL="https://graph.facebook.com/v22.0/703265162877736/messages"
+WHATSAPP_API_URL="https://graph.facebook.com/v22.0/775062742347677/messages"
 WHATSAPP_TOKEN="EAAStwtk8iaABPClKNkiXr3AGs5EeoVe23lOfu65ozyysUL7ZA16r2GaZAAkZAf3Aj07W4RSrZAKrZBDnGZB2lJl5osf4S8kpHZBClVRAEZBpxRzcN69Sv644qqBP2xZBt0whB6rsY88IcmN1CMQpeSDhlIzWAwQJGZBeS8tU4oyFGoOtxvZCOV0hQcZCsMPORuRWb1UWlwZDZD"
 
 def llm_api(data):
