@@ -8,11 +8,10 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
 from django.core.cache import cache
 
-WHATSAPP_API_URL="https://graph.facebook.com/v22.0/775062742347677/messages"
-WHATSAPP_TOKEN="EAAStwtk8iaABPClKNkiXr3AGs5EeoVe23lOfu65ozyysUL7ZA16r2GaZAAkZAf3Aj07W4RSrZAKrZBDnGZB2lJl5osf4S8kpHZBClVRAEZBpxRzcN69Sv644qqBP2xZBt0whB6rsY88IcmN1CMQpeSDhlIzWAwQJGZBeS8tU4oyFGoOtxvZCOV0hQcZCsMPORuRWb1UWlwZDZD"
+WHATSAPP_API_URL="https://graph.facebook.com/v22.0/720254477847692/messages"
+WHATSAPP_TOKEN="EAFamCrwshVkBPWBphfhS1ZAY7j9ZCHswNdSRy2sp74LZAAtEEL0DO1ljkxF09jZBWmeCYvbIKoPZCKO0ACGcebEuR8eYhPSDKO7ON50ydmC7x9vlecZCcy4CdMLAJC1kUmiXFzziMVcbCI1Ne9SmrwkKpqZAG3l99wZCy2p7OdAOMXu8p9JZBz9DjWvNcaHKTdVKxNZC57KpZAJwrMfKSqy07Kki40LWxENSz96OiHHAnws4lGiFAZDZD"
 
 def llm_api(data):
     payload={
