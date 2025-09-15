@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: llmbot
-    env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn mainbot.wsgi:application"
-    runtime: python-3.11.9
