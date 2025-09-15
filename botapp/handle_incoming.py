@@ -16,7 +16,7 @@ WHATSAPP_TOKEN="EAFamCrwshVkBPWBphfhS1ZAY7j9ZCHswNdSRy2sp74LZAAtEEL0DO1ljkxF09jZ
 def llm_api(data):
     payload={
         "token": "izDIEr98aBF24jJ6FB2Z4fle",
-        "id": "abc1231",
+        "id": "abc123",
         "question": data
         }   
     url="https://us-central1-ejournal-7b5df.cloudfunctions.net/askAssistantWithId"
@@ -103,3 +103,4 @@ def send_request_to_whatsapp(payload):
         logger.info(f"Message sent: {response.json()}")
     except requests.RequestException as e:
         logger.error(f"Message failed: {e}, Response: {e.response.text if e.response else 'No response'}")
+

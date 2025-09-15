@@ -244,7 +244,7 @@
         "kind": 2,
         "importPath": "botapp.handle_incoming",
         "description": "botapp.handle_incoming",
-        "peekOfCode": "def llm_api(data):\n    payload={\n        \"token\": \"izDIEr98aBF24jJ6FB2Z4fle\",\n        \"id\": \"abc1231\",\n        \"question\": data\n        }   \n    url=\"https://us-central1-ejournal-7b5df.cloudfunctions.net/askAssistantWithId\"\n    headers = {\n        \"Content-Type\": \"application/json\",\n    }",
+        "peekOfCode": "def llm_api(data):\n    payload={\n        \"token\": \"izDIEr98aBF24jJ6FB2Z4fle\",\n        \"id\": \"abc123\",\n        \"question\": data\n        }   \n    url=\"https://us-central1-ejournal-7b5df.cloudfunctions.net/askAssistantWithId\"\n    headers = {\n        \"Content-Type\": \"application/json\",\n    }",
         "detail": "botapp.handle_incoming",
         "documentation": {}
     },
@@ -298,7 +298,7 @@
         "kind": 5,
         "importPath": "botapp.handle_incoming",
         "description": "botapp.handle_incoming",
-        "peekOfCode": "logger = logging.getLogger(__name__)\nfrom django.core.cache import cache\nWHATSAPP_API_URL=\"https://graph.facebook.com/v22.0/720254477847692/messages\"\nWHATSAPP_TOKEN=\"EAFamCrwshVkBPWBphfhS1ZAY7j9ZCHswNdSRy2sp74LZAAtEEL0DO1ljkxF09jZBWmeCYvbIKoPZCKO0ACGcebEuR8eYhPSDKO7ON50ydmC7x9vlecZCcy4CdMLAJC1kUmiXFzziMVcbCI1Ne9SmrwkKpqZAG3l99wZCy2p7OdAOMXu8p9JZBz9DjWvNcaHKTdVKxNZC57KpZAJwrMfKSqy07Kki40LWxENSz96OiHHAnws4lGiFAZDZD\"\ndef llm_api(data):\n    payload={\n        \"token\": \"izDIEr98aBF24jJ6FB2Z4fle\",\n        \"id\": \"abc1231\",\n        \"question\": data\n        }   ",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nfrom django.core.cache import cache\nWHATSAPP_API_URL=\"https://graph.facebook.com/v22.0/720254477847692/messages\"\nWHATSAPP_TOKEN=\"EAFamCrwshVkBPWBphfhS1ZAY7j9ZCHswNdSRy2sp74LZAAtEEL0DO1ljkxF09jZBWmeCYvbIKoPZCKO0ACGcebEuR8eYhPSDKO7ON50ydmC7x9vlecZCcy4CdMLAJC1kUmiXFzziMVcbCI1Ne9SmrwkKpqZAG3l99wZCy2p7OdAOMXu8p9JZBz9DjWvNcaHKTdVKxNZC57KpZAJwrMfKSqy07Kki40LWxENSz96OiHHAnws4lGiFAZDZD\"\ndef llm_api(data):\n    payload={\n        \"token\": \"izDIEr98aBF24jJ6FB2Z4fle\",\n        \"id\": \"abc123\",\n        \"question\": data\n        }   ",
         "detail": "botapp.handle_incoming",
         "documentation": {}
     },
