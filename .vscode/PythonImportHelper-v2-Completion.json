@@ -271,7 +271,7 @@
         "kind": 2,
         "importPath": "botapp.handle_incoming",
         "description": "botapp.handle_incoming",
-        "peekOfCode": "def handle_list_message(from_number,list_reply):\n    selected_id = list_reply.get('id')\n    title=list_reply.get('title')\n    if selected_id == \"list_1\":\n        output= llm_api(title)\n        if output:\n            print(f\"output---{output}\")\n            ans=output.get(\"answer\")\n            send_text_message(from_number,f\"{ans}\")\n        else:",
+        "peekOfCode": "def handle_list_message(from_number,list_reply):\n    selected_id = list_reply.get('id')\n    title=list_reply.get('title')\n    if title:\n        logger.info(f\"title_____{title}__length--{len(title)}\")\n    if selected_id == \"list_1\" and title:\n        logger.info(f\"title_____{title}__length--{len(title)}\")\n        output= llm_api(title)\n        if output:\n            print(f\"output---{output}\")",
         "detail": "botapp.handle_incoming",
         "documentation": {}
     },

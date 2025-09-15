@@ -76,7 +76,10 @@ def handle_interactive(from_number, interactive,name):
 def handle_list_message(from_number,list_reply):
     selected_id = list_reply.get('id')
     title=list_reply.get('title')
-    if selected_id == "list_1":
+    if title:
+        logger.info(f"title_____{title}__length--{len(title)}")
+    if selected_id == "list_1" and title:
+        logger.info(f"title_____{title}__length--{len(title)}")
         output= llm_api(title)
         if output:
             print(f"output---{output}")
@@ -85,7 +88,8 @@ def handle_list_message(from_number,list_reply):
         else:
             send_text_message(from_number,f"No response from LLM API.")
     
-    elif selected_id == "list_1":
+    elif selected_id == "list_2" and title:
+        logger.info(f"title_____{title}__length--{len(title)}")
         output= llm_api(title)
         if output:
             print(f"output---{output}")
@@ -94,7 +98,8 @@ def handle_list_message(from_number,list_reply):
         else:
             send_text_message(from_number,f"No response from LLM API.")
             
-    elif selected_id == "list_1":
+    elif selected_id == "list_3" and title:
+        logger.info(f"title_____{title}__length--{len(title)}")
         output= llm_api(title)
         if output:
             print(f"output---{output}")
