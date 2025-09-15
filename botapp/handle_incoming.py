@@ -51,16 +51,10 @@ def handle_incoming_messages(request):
             from_number = message.get('from')
             text = message.get('text', {}).get('body', '').strip().lower()
             interactive = message.get('interactive')
-            if text:
-                output= llm_api(text)
-                if output:
-                    print(f"output---{output}")
-                    ans=output.get("answer")
-                    send_text_message(from_number,f"{ans}")
-                else:
-                    send_text_message(from_number,f"please send Hi for starting chat")
+            if text in ['hi','hello','hey']:
+                menu_option(from_number)
                 return JsonResponse({'status': 'success'}, status=200)
-            
+
             elif interactive:
                 handle_interactive(from_number, interactive,name)
                 return JsonResponse({'status': 'success'}, status=200)
@@ -68,6 +62,90 @@ def handle_incoming_messages(request):
                 send_text_message(from_number, "Please select an option from the menu or type 'DEL and AW' to start.")
     logger.info("No valid message found in the request.")
     return JsonResponse({'status': 'no action taken'}, status=200)
+
+def handle_interactive(from_number, interactive,name):
+    list_reply = interactive.get('list_reply')
+    if list_reply:
+        handle_list_message(from_number,list_reply)
+        return JsonResponse({'status': 'success'}, status=200)
+    button_id = interactive.get('button_reply', {}).get('id')
+
+    logger.info(f"Button clicked: {button_id}")
+    return JsonResponse({'status': 'no action taken'}, status=200)
+
+def handle_list_message(from_number,list_reply):
+    selected_id = list_reply.get('id')
+    title=list_reply.get('title')
+    if selected_id == "list_1":
+        output= llm_api(title)
+        if output:
+            print(f"output---{output}")
+            ans=output.get("answer")
+            send_text_message(from_number,f"{ans}")
+        else:
+            send_text_message(from_number,f"No response from LLM API.")
+    
+    elif selected_id == "list_1":
+        output= llm_api(title)
+        if output:
+            print(f"output---{output}")
+            ans=output.get("answer")
+            send_text_message(from_number,f"{ans}")
+        else:
+            send_text_message(from_number,f"No response from LLM API.")
+            
+    elif selected_id == "list_1":
+        output= llm_api(title)
+        if output:
+            print(f"output---{output}")
+            ans=output.get("answer")
+            send_text_message(from_number,f"{ans}")
+        else:
+            send_text_message(from_number,f"No response from LLM API.")                
+            
+        
+    return JsonResponse({'status': 'no action taken'}, status=200)
+
+def menu_option(to):
+    payload = {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to":to,
+        "type": "interactive",
+        "interactive": {
+            "type": "list",
+            
+            "body": {
+                "text": f"HI {to}\nPlease select an option from the menu:"
+            },
+            "action": {
+                "button": "Main Menu",
+                "sections": [
+                    {
+                        "title": "Menu",
+                        "rows": [
+                            {
+                                "id": "list_1",
+                                "title": "eAuctions",
+                            },
+                            {
+                                "id": "list_2",
+                                "title": "Licenses",
+                            },
+                            {
+                                "id": "list_3",
+                                "title": "Citizen Services",
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+    send_request_to_whatsapp(payload)
+
+
+
 def handle_interactive(from_number, interactive,name):
     flow_responses=interactive.get('nfm_reply',{}).get('response_json')
     list_reply = interactive.get('list_reply')
