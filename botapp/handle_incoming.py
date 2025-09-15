@@ -80,7 +80,7 @@ def handle_list_message(from_number,list_reply):
         logger.info(f"title_____{title}__length--{len(title)}")
     if selected_id == "list_1":
         logger.info(f"title_____{title}__length--{len(title)}")
-        send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
+        #send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
         output= llm_api(title)
         if output:
             print(f"output---{output}")
@@ -91,7 +91,7 @@ def handle_list_message(from_number,list_reply):
     
     elif selected_id == "list_2":
         logger.info(f"title_____{title}__length--{len(title)}")
-        send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
+        #send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
         output= llm_api(title)
         if output:
             print(f"output---{output}")
@@ -102,7 +102,7 @@ def handle_list_message(from_number,list_reply):
             
     elif selected_id == "list_3":
         logger.info(f"title_____{title}__length--{len(title)}")
-        send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
+        #send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
         output= llm_api(title)
         if output:
             print(f"output---{output}")
