@@ -78,54 +78,41 @@ def handle_list_message(from_number,list_reply):
     title=list_reply.get('title')
     if title:
         logger.info(f"title_____{title}__length--{len(title)}")
-    if selected_id == "list_1" and title:
+    if selected_id == "list_1":
         logger.info(f"title_____{title}__length--{len(title)}")
         send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
-        # output= llm_api(title)
-        # if output:
-        #     print(f"output---{output}")
-        #     ans=output.get("answer")
-        #     send_text_message(from_number,f"{ans}")
-        # else:
-        #     send_text_message(from_number,f"No response from LLM API.")
+        output= llm_api(title)
+        if output:
+            print(f"output---{output}")
+            ans=output.get("answer")
+            send_text_message(from_number,f"{ans}")
+        else:
+            send_text_message(from_number,f"No response from LLM API.")
     
-    elif selected_id == "list_2" and title:
+    elif selected_id == "list_2":
         logger.info(f"title_____{title}__length--{len(title)}")
         send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
-        # output= llm_api(title)
-        # if output:
-        #     print(f"output---{output}")
-        #     ans=output.get("answer")
-        #     send_text_message(from_number,f"{ans}")
-        # else:
-        #     send_text_message(from_number,f"No response from LLM API.")
+        output= llm_api(title)
+        if output:
+            print(f"output---{output}")
+            ans=output.get("answer")
+            send_text_message(from_number,f"{ans}")
+        else:
+            send_text_message(from_number,f"No response from LLM API.")
             
-    elif selected_id == "list_3" and title:
+    elif selected_id == "list_3":
         logger.info(f"title_____{title}__length--{len(title)}")
         send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
-        # output= llm_api(title)
-        # if output:
-        #     print(f"output---{output}")
-        #     ans=output.get("answer")
-        #     send_text_message(from_number,f"{ans}")
-        # else:
-        #     send_text_message(from_number,f"No response from LLM API.")                
+        output= llm_api(title)
+        if output:
+            print(f"output---{output}")
+            ans=output.get("answer")
+            send_text_message(from_number,f"{ans}")
+        else:
+            send_text_message(from_number,f"No response from LLM API.")                
             
         
     return JsonResponse({'status': 'no action taken'}, status=200)
-
-
-# def typing_messages(to):
-#     payload={
-#         "messaging_product": "whatsapp",
-#         "status": "read",
-#         "message_id": "",
-#         "typing_indicator": {
-#             "type": "text"
-#         }
-#     }
-#     send_request_to_whatsapp(payload)
-    
 
 def menu_option(to):
     payload = {
@@ -164,24 +151,6 @@ def menu_option(to):
         }
     }
     send_request_to_whatsapp(payload)
-
-
-
-def handle_interactive(from_number, interactive,name):
-    flow_responses=interactive.get('nfm_reply',{}).get('response_json')
-    list_reply = interactive.get('list_reply')
-    if list_reply:
-        handle_list_message(from_number,list_reply)
-        return JsonResponse({'status': 'success'}, status=200)
-    button_id = interactive.get('button_reply', {}).get('id')
-    logger.info(f"Button clicked: {button_id}")
-    return JsonResponse({'status': 'no action taken'}, status=200)
-    return JsonResponse({'status': 'no action taken'}, status=200)
-
-def handle_list_message(from_number,list_reply):
-    selected_id = list_reply.get('id')
-    print(f"selectd_id_____{selected_id}") 
-    return JsonResponse({'status': 'no action taken'}, status=200)
 
 
 def send_text_message(to, message):

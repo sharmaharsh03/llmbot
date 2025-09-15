@@ -271,7 +271,7 @@
         "kind": 2,
         "importPath": "botapp.handle_incoming",
         "description": "botapp.handle_incoming",
-        "peekOfCode": "def handle_list_message(from_number,list_reply):\n    selected_id = list_reply.get('id')\n    title=list_reply.get('title')\n    if title:\n        logger.info(f\"title_____{title}__length--{len(title)}\")\n    if selected_id == \"list_1\" and title:\n        logger.info(f\"title_____{title}__length--{len(title)}\")\n        send_text_message(from_number,f\"You selected eAuctions. Please provide more details about your query regarding eAuctions.\")\n        # output= llm_api(title)\n        # if output:",
+        "peekOfCode": "def handle_list_message(from_number,list_reply):\n    selected_id = list_reply.get('id')\n    title=list_reply.get('title')\n    if title:\n        logger.info(f\"title_____{title}__length--{len(title)}\")\n    if selected_id == \"list_1\":\n        logger.info(f\"title_____{title}__length--{len(title)}\")\n        send_text_message(from_number,f\"You selected eAuctions. Please provide more details about your query regarding eAuctions.\")\n        output= llm_api(title)\n        if output:",
         "detail": "botapp.handle_incoming",
         "documentation": {}
     },
@@ -281,24 +281,6 @@
         "importPath": "botapp.handle_incoming",
         "description": "botapp.handle_incoming",
         "peekOfCode": "def menu_option(to):\n    payload = {\n        \"messaging_product\": \"whatsapp\",\n        \"recipient_type\": \"individual\",\n        \"to\":to,\n        \"type\": \"interactive\",\n        \"interactive\": {\n            \"type\": \"list\",\n            \"body\": {\n                \"text\": f\"HI {to}\\nPlease select an option from the menu:\"",
-        "detail": "botapp.handle_incoming",
-        "documentation": {}
-    },
-    {
-        "label": "handle_interactive",
-        "kind": 2,
-        "importPath": "botapp.handle_incoming",
-        "description": "botapp.handle_incoming",
-        "peekOfCode": "def handle_interactive(from_number, interactive,name):\n    flow_responses=interactive.get('nfm_reply',{}).get('response_json')\n    list_reply = interactive.get('list_reply')\n    if list_reply:\n        handle_list_message(from_number,list_reply)\n        return JsonResponse({'status': 'success'}, status=200)\n    button_id = interactive.get('button_reply', {}).get('id')\n    logger.info(f\"Button clicked: {button_id}\")\n    return JsonResponse({'status': 'no action taken'}, status=200)\n    return JsonResponse({'status': 'no action taken'}, status=200)",
-        "detail": "botapp.handle_incoming",
-        "documentation": {}
-    },
-    {
-        "label": "handle_list_message",
-        "kind": 2,
-        "importPath": "botapp.handle_incoming",
-        "description": "botapp.handle_incoming",
-        "peekOfCode": "def handle_list_message(from_number,list_reply):\n    selected_id = list_reply.get('id')\n    print(f\"selectd_id_____{selected_id}\") \n    return JsonResponse({'status': 'no action taken'}, status=200)\ndef send_text_message(to, message):\n    payload = {\n        \"messaging_product\": \"whatsapp\",\n        \"to\": to,\n        \"type\": \"text\",\n        \"text\": {\"body\": message}",
         "detail": "botapp.handle_incoming",
         "documentation": {}
     },
