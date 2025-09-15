@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .handle_incoming import handle_incoming_messages
-from .models import Retailer,RetailerProductInfo
 VERIFY_TOKEN = 'HAPPYBOY'
 
 def home(request):

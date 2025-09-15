@@ -8,7 +8,6 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-from .models import DelRetailerUID,AWCode
 
 from django.core.cache import cache
 
