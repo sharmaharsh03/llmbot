@@ -316,7 +316,7 @@
         "kind": 2,
         "importPath": "botapp.views",
         "description": "botapp.views",
-        "peekOfCode": "def home(request):\n    return render(request, 'webview.html')\n@csrf_exempt\ndef webhook(request):\n    if request.method == 'GET':\n        return handle_verification(request)  \n    elif request.method == 'POST':\n        return handle_incoming_messages(request) \n    return JsonResponse({'error': 'Method not allowed'}, status=405)\ndef handle_verification(request): ",
+        "peekOfCode": "def home(request):\n    return HttpResponse(\"Hello, this is the home page of the bot application.\")\n@csrf_exempt\ndef webhook(request):\n    if request.method == 'GET':\n        return handle_verification(request)  \n    elif request.method == 'POST':\n        return handle_incoming_messages(request) \n    return JsonResponse({'error': 'Method not allowed'}, status=405)\ndef handle_verification(request): ",
         "detail": "botapp.views",
         "documentation": {}
     },
@@ -343,7 +343,7 @@
         "kind": 5,
         "importPath": "botapp.views",
         "description": "botapp.views",
-        "peekOfCode": "VERIFY_TOKEN = 'HAPPYBOY'\ndef home(request):\n    return render(request, 'webview.html')\n@csrf_exempt\ndef webhook(request):\n    if request.method == 'GET':\n        return handle_verification(request)  \n    elif request.method == 'POST':\n        return handle_incoming_messages(request) \n    return JsonResponse({'error': 'Method not allowed'}, status=405)",
+        "peekOfCode": "VERIFY_TOKEN = 'HAPPYBOY'\ndef home(request):\n    return HttpResponse(\"Hello, this is the home page of the bot application.\")\n@csrf_exempt\ndef webhook(request):\n    if request.method == 'GET':\n        return handle_verification(request)  \n    elif request.method == 'POST':\n        return handle_incoming_messages(request) \n    return JsonResponse({'error': 'Method not allowed'}, status=405)",
         "detail": "botapp.views",
         "documentation": {}
     },

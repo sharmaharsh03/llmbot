@@ -6,7 +6,7 @@ from .handle_incoming import handle_incoming_messages
 VERIFY_TOKEN = 'HAPPYBOY'
 
 def home(request):
-    return render(request, 'webview.html')
+    return HttpResponse("Hello, this is the home page of the bot application.")
 
 @csrf_exempt
 def webhook(request):
