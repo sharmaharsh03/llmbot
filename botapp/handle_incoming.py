@@ -59,7 +59,7 @@ def handle_incoming_messages(request):
                 handle_interactive(from_number, interactive,name)
                 return JsonResponse({'status': 'success'}, status=200)
             else:
-                 output= llm_api(title)
+                 output= llm_api(text)
                  if output:
                      print(f"output---{output}")
                      ans=output.get("answer")
