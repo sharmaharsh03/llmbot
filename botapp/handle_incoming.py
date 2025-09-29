@@ -59,7 +59,13 @@ def handle_incoming_messages(request):
                 handle_interactive(from_number, interactive,name)
                 return JsonResponse({'status': 'success'}, status=200)
             else:
-                send_text_message(from_number, "Please select an option from the menu or type 'DEL and AW' to start.")
+                 output= llm_api(title)
+                 if output:
+                     print(f"output---{output}")
+                     ans=output.get("answer")
+                     send_text_message(from_number,f"{ans}")
+                 else:
+                     send_text_message(from_number,f"No response from LLM API.")    
     logger.info("No valid message found in the request.")
     return JsonResponse({'status': 'no action taken'}, status=200)
 
