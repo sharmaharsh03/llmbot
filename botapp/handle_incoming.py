@@ -13,7 +13,7 @@ from django.core.cache import cache
 WHATSAPP_API_URL="https://graph.facebook.com/v22.0/720254477847692/messages"
 WHATSAPP_TOKEN="EAFamCrwshVkBPUSZBfGDgqYsbVLoIZBlLMYaxU2Dnco4l6q4wYnGKfFd19ZBb2wbnR0bXcOaZCh1sbqhKF8HZBUzbvR26E0Tl3g1MmcakOaN8uZCF7r8Rzb1aTuqNDvZAvnqn0AFBo9yVUdJ9RZCbeCyBZCUinCZBpwDPCpGFgZAXTMCw3hboikezY1w2i5jHAk5HZAVrwZDZD"
 
-def llm_api(data):
+def llm_api(data,id):
     payload={
         "token": "izDIEr98aBF24jJ6FB2Z4fle",
         "id": "abc123",
@@ -59,7 +59,7 @@ def handle_incoming_messages(request):
                 handle_interactive(from_number, interactive,name)
                 return JsonResponse({'status': 'success'}, status=200)
             else:
-                 output= llm_api(text)
+                 output= llm_api(text,from_number)
                  if output:
                      print(f"output---{output}")
                      ans=output.get("answer")
@@ -87,7 +87,7 @@ def handle_list_message(from_number,list_reply):
     if selected_id == "list_1":
         logger.info(f"title_____{title}__length--{len(title)}")
         #send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
-        output= llm_api(title)
+        output= llm_api(title,from_number)
         if output:
             print(f"output---{output}")
             ans=output.get("answer")
@@ -98,7 +98,7 @@ def handle_list_message(from_number,list_reply):
     elif selected_id == "list_2":
         logger.info(f"title_____{title}__length--{len(title)}")
         #send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
-        output= llm_api(title)
+        output= llm_api(title,from_number)
         if output:
             print(f"output---{output}")
             ans=output.get("answer")
@@ -109,7 +109,7 @@ def handle_list_message(from_number,list_reply):
     elif selected_id == "list_3":
         logger.info(f"title_____{title}__length--{len(title)}")
         #send_text_message(from_number,f"You selected eAuctions. Please provide more details about your query regarding eAuctions.")
-        output= llm_api(title)
+        output= llm_api(title,from_number)
         if output:
             print(f"output---{output}")
             ans=output.get("answer")
@@ -121,6 +121,10 @@ def handle_list_message(from_number,list_reply):
     return JsonResponse({'status': 'no action taken'}, status=200)
 
 def menu_option(to):
+    if cache.get(f"message_sent_{to}"):
+        logger.info(f"Message already sent to {to}. Skipping...")
+        return
+
     payload = {
         "messaging_product": "whatsapp",
         "recipient_type": "individual",
@@ -160,6 +164,10 @@ def menu_option(to):
 
 
 def send_text_message(to, message):
+    if cache.get(f"message_sent_{to}"):
+        logger.info(f"Message already sent to {to}. Skipping...")
+        return
+
     payload = {
         "messaging_product": "whatsapp",
         "to": to,
