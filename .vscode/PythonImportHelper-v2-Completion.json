@@ -280,7 +280,7 @@
         "kind": 2,
         "importPath": "botapp.handle_incoming",
         "description": "botapp.handle_incoming",
-        "peekOfCode": "def menu_option(to):\n    if cache.get(f\"message_sent_{to}\"):\n        logger.info(f\"Message already sent to {to}. Skipping...\")\n        return\n    payload = {\n        \"messaging_product\": \"whatsapp\", \n        \"recipient_type\": \"individual\",\n        \"to\":to,\n        \"type\": \"interactive\",\n        \"interactive\": {",
+        "peekOfCode": "def menu_option(to):\n    # if cache.get(f\"message_sent_{to}\"):\n    #     logger.info(f\"Message already sent to {to}. Skipping...\")\n    #     return\n    payload = {\n        \"messaging_product\": \"whatsapp\", \n        \"recipient_type\": \"individual\",\n        \"to\":to,\n        \"type\": \"interactive\",\n        \"interactive\": {",
         "detail": "botapp.handle_incoming",
         "documentation": {}
     },
@@ -289,7 +289,7 @@
         "kind": 2,
         "importPath": "botapp.handle_incoming",
         "description": "botapp.handle_incoming",
-        "peekOfCode": "def send_text_message(to, message):\n    cache_key = f\"message_sent_{to}\"\n    if cache.get(cache_key):\n        logger.info(f\"Duplicate message avoided for {to}. Skipping...\")\n        return\n    payload = {\n        \"messaging_product\": \"whatsapp\",\n        \"to\": to,\n        \"type\": \"text\",\n        \"text\": {\"body\": message}",
+        "peekOfCode": "def send_text_message(to, message):\n    # cache_key = f\"message_sent_{to}\"\n    # if cache.get(cache_key):\n    #     logger.info(f\"Duplicate message avoided for {to}. Skipping...\")\n    #     return\n    payload = {\n        \"messaging_product\": \"whatsapp\",\n        \"to\": to,\n        \"type\": \"text\",\n        \"text\": {\"body\": message}",
         "detail": "botapp.handle_incoming",
         "documentation": {}
     },

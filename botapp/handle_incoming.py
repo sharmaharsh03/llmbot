@@ -49,11 +49,11 @@ def handle_incoming_messages(request):
             name = contacts.get('profile', {}).get('name', '')
             wa_id=contacts.get('wa_id', '')
             message_id = message.get("id")
-            cache_key = f"processed_{message_id}"
-            if cache.get(cache_key):
-                logger.info(f"Duplicate message {message_id} skipped.")
-                continue
-            cache.set(cache_key, True, timeout=300)   
+            # cache_key = f"processed_{message_id}"
+            # if cache.get(cache_key):
+            #     logger.info(f"Duplicate message {message_id} skipped.")
+            #     continue
+            # cache.set(cache_key, True, timeout=300)   
             from_number = message.get('from')
             text = message.get('text', {}).get('body', '').strip().lower()
             interactive = message.get('interactive')
@@ -124,9 +124,9 @@ def handle_list_message(from_number,list_reply):
     return JsonResponse({'status': 'no action taken'}, status=200)
 
 def menu_option(to):
-    if cache.get(f"message_sent_{to}"):
-        logger.info(f"Message already sent to {to}. Skipping...")
-        return
+    # if cache.get(f"message_sent_{to}"):
+    #     logger.info(f"Message already sent to {to}. Skipping...")
+    #     return
 
     payload = {
         "messaging_product": "whatsapp", 
@@ -167,10 +167,10 @@ def menu_option(to):
 
 
 def send_text_message(to, message):
-    cache_key = f"message_sent_{to}"
-    if cache.get(cache_key):
-        logger.info(f"Duplicate message avoided for {to}. Skipping...")
-        return
+    # cache_key = f"message_sent_{to}"
+    # if cache.get(cache_key):
+    #     logger.info(f"Duplicate message avoided for {to}. Skipping...")
+    #     return
 
     payload = {
         "messaging_product": "whatsapp",
@@ -179,8 +179,6 @@ def send_text_message(to, message):
         "text": {"body": message}
     }
     send_request_to_whatsapp(payload)
-    # Mark as sent for 60 seconds
-    cache.set(cache_key, True, timeout=60)
 
 
 def menu_option(to):
