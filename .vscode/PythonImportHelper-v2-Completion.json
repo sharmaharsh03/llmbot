@@ -1,0 +1,557 @@
+[
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "loads",
+        "importPath": "json",
+        "description": "json",
+        "isExtraImport": true,
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "cache",
+        "importPath": "django.core.cache",
+        "description": "django.core.cache",
+        "isExtraImport": true,
+        "detail": "django.core.cache",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "BotappConfig",
+        "kind": 6,
+        "importPath": "botapp.apps",
+        "description": "botapp.apps",
+        "peekOfCode": "class BotappConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'botapp'",
+        "detail": "botapp.apps",
+        "documentation": {}
+    },
+    {
+        "label": "llm_api",
+        "kind": 2,
+        "importPath": "botapp.handle_incoming",
+        "description": "botapp.handle_incoming",
+        "peekOfCode": "def llm_api(data,id):\n    payload={\n        \"token\": \"izDIEr98aBF24jJ6FB2Z4fle\",\n        \"id\": id,\n        \"question\": data\n        }   \n    url=\"https://us-central1-ejournal-7b5df.cloudfunctions.net/askAssistantWithId\"\n    headers = {\n        \"Content-Type\": \"application/json\",\n    }",
+        "detail": "botapp.handle_incoming",
+        "documentation": {}
+    },
+    {
+        "label": "handle_incoming_messages",
+        "kind": 2,
+        "importPath": "botapp.handle_incoming",
+        "description": "botapp.handle_incoming",
+        "peekOfCode": "def handle_incoming_messages(request):\n    try:\n        data = json.loads(request.body)\n        logger.info(f\"Received data: {data}\")\n    except json.JSONDecodeError:\n        logger.error(\"Invalid JSON format\")\n        return JsonResponse({'error': 'Invalid JSON format'}, status=400)\n    for entry in data.get('entry', []):\n        for messaging_event in entry.get('changes', []):\n            message = messaging_event.get('value', {}).get('messages', [{}])[0]",
+        "detail": "botapp.handle_incoming",
+        "documentation": {}
+    },
+    {
+        "label": "handle_interactive",
+        "kind": 2,
+        "importPath": "botapp.handle_incoming",
+        "description": "botapp.handle_incoming",
+        "peekOfCode": "def handle_interactive(from_number, interactive,name):\n    list_reply = interactive.get('list_reply')\n    if list_reply:\n        handle_list_message(from_number,list_reply)\n        return JsonResponse({'status': 'success'}, status=200)\n    button_id = interactive.get('button_reply', {}).get('id')\n    logger.info(f\"Button clicked: {button_id}\")\n    return JsonResponse({'status': 'no action taken'}, status=200)\ndef handle_list_message(from_number,list_reply):\n    selected_id = list_reply.get('id')",
+        "detail": "botapp.handle_incoming",
+        "documentation": {}
+    },
+    {
+        "label": "handle_list_message",
+        "kind": 2,
+        "importPath": "botapp.handle_incoming",
+        "description": "botapp.handle_incoming",
+        "peekOfCode": "def handle_list_message(from_number,list_reply):\n    selected_id = list_reply.get('id')\n    title=list_reply.get('title')\n    if title:\n        logger.info(f\"title_____{title}__length--{len(title)}\")\n    if selected_id == \"list_1\":\n        logger.info(f\"title_____{title}__length--{len(title)}\")\n        output= llm_api(title,from_number)\n        if output:\n            print(f\"output---{output}\")",
+        "detail": "botapp.handle_incoming",
+        "documentation": {}
+    },
+    {
+        "label": "menu_option",
+        "kind": 2,
+        "importPath": "botapp.handle_incoming",
+        "description": "botapp.handle_incoming",
+        "peekOfCode": "def menu_option(to):\n    if cache.get(f\"message_sent_{to}\"):\n        logger.info(f\"Message already sent to {to}. Skipping...\")\n        return\n    payload = {\n        \"messaging_product\": \"whatsapp\", \n        \"recipient_type\": \"individual\",\n        \"to\":to,\n        \"type\": \"interactive\",\n        \"interactive\": {",
+        "detail": "botapp.handle_incoming",
+        "documentation": {}
+    },
+    {
+        "label": "send_text_message",
+        "kind": 2,
+        "importPath": "botapp.handle_incoming",
+        "description": "botapp.handle_incoming",
+        "peekOfCode": "def send_text_message(to, message):\n    cache_key = f\"message_sent_{to}\"\n    if cache.get(cache_key):\n        logger.info(f\"Duplicate message avoided for {to}. Skipping...\")\n        return\n    payload = {\n        \"messaging_product\": \"whatsapp\",\n        \"to\": to,\n        \"type\": \"text\",\n        \"text\": {\"body\": message}",
+        "detail": "botapp.handle_incoming",
+        "documentation": {}
+    },
+    {
+        "label": "menu_option",
+        "kind": 2,
+        "importPath": "botapp.handle_incoming",
+        "description": "botapp.handle_incoming",
+        "peekOfCode": "def menu_option(to):\n    cache_key = f\"message_sent_menu_{to}\"\n    if cache.get(cache_key):\n        logger.info(f\"Menu already sent to {to}. Skipping...\")\n        return\n    payload = {\n        \"messaging_product\": \"whatsapp\", \n        \"recipient_type\": \"individual\",\n        \"to\":to,\n        \"type\": \"interactive\",",
+        "detail": "botapp.handle_incoming",
+        "documentation": {}
+    },
+    {
+        "label": "send_request_to_whatsapp",
+        "kind": 2,
+        "importPath": "botapp.handle_incoming",
+        "description": "botapp.handle_incoming",
+        "peekOfCode": "def send_request_to_whatsapp(payload):\n    try:\n        response = requests.post(WHATSAPP_API_URL, headers={\n            'Authorization': f'Bearer {WHATSAPP_TOKEN}',\n            'Content-Type': 'application/json'\n        }, json=payload)\n        logger.info(f\"Message sent: {response.json()}\")\n    except requests.RequestException as e:\n        logger.error(f\"Message failed: {e}, Response: {e.response.text if e.response else 'No response'}\")",
+        "detail": "botapp.handle_incoming",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "botapp.handle_incoming",
+        "description": "botapp.handle_incoming",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nfrom django.core.cache import cache\nWHATSAPP_API_URL=\"https://graph.facebook.com/v22.0/720254477847692/messages\"\nWHATSAPP_TOKEN=\"EAFamCrwshVkBPUSZBfGDgqYsbVLoIZBlLMYaxU2Dnco4l6q4wYnGKfFd19ZBb2wbnR0bXcOaZCh1sbqhKF8HZBUzbvR26E0Tl3g1MmcakOaN8uZCF7r8Rzb1aTuqNDvZAvnqn0AFBo9yVUdJ9RZCbeCyBZCUinCZBpwDPCpGFgZAXTMCw3hboikezY1w2i5jHAk5HZAVrwZDZD\"\ndef llm_api(data,id):\n    payload={\n        \"token\": \"izDIEr98aBF24jJ6FB2Z4fle\",\n        \"id\": id,\n        \"question\": data\n        }   ",
+        "detail": "botapp.handle_incoming",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "botapp.urls",
+        "description": "botapp.urls",
+        "peekOfCode": "urlpatterns = [\n    path('',views.home,name='home'),\n    path('webhook',views.webhook,name='webhook'),\n]",
+        "detail": "botapp.urls",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "botapp.views",
+        "description": "botapp.views",
+        "peekOfCode": "def home(request):\n    return HttpResponse(\"Hello, this is the home page of the bot application.\")\n@csrf_exempt\ndef webhook(request):\n    if request.method == 'GET':\n        return handle_verification(request)  \n    elif request.method == 'POST':\n        return handle_incoming_messages(request) \n    return JsonResponse({'error': 'Method not allowed'}, status=405)\ndef handle_verification(request): ",
+        "detail": "botapp.views",
+        "documentation": {}
+    },
+    {
+        "label": "webhook",
+        "kind": 2,
+        "importPath": "botapp.views",
+        "description": "botapp.views",
+        "peekOfCode": "def webhook(request):\n    if request.method == 'GET':\n        return handle_verification(request)  \n    elif request.method == 'POST':\n        return handle_incoming_messages(request) \n    return JsonResponse({'error': 'Method not allowed'}, status=405)\ndef handle_verification(request): \n    mode = request.GET.get('hub.mode')\n    token = request.GET.get('hub.verify_token')\n    challenge = request.GET.get('hub.challenge')",
+        "detail": "botapp.views",
+        "documentation": {}
+    },
+    {
+        "label": "handle_verification",
+        "kind": 2,
+        "importPath": "botapp.views",
+        "description": "botapp.views",
+        "peekOfCode": "def handle_verification(request): \n    mode = request.GET.get('hub.mode')\n    token = request.GET.get('hub.verify_token')\n    challenge = request.GET.get('hub.challenge')\n    if mode == 'subscribe' and token == VERIFY_TOKEN:\n        return HttpResponse(challenge, status=200)\n    return JsonResponse({'error': 'Verification failed'}, status=403)",
+        "detail": "botapp.views",
+        "documentation": {}
+    },
+    {
+        "label": "VERIFY_TOKEN",
+        "kind": 5,
+        "importPath": "botapp.views",
+        "description": "botapp.views",
+        "peekOfCode": "VERIFY_TOKEN = 'HAPPYBOY'\ndef home(request):\n    return HttpResponse(\"Hello, this is the home page of the bot application.\")\n@csrf_exempt\ndef webhook(request):\n    if request.method == 'GET':\n        return handle_verification(request)  \n    elif request.method == 'POST':\n        return handle_incoming_messages(request) \n    return JsonResponse({'error': 'Method not allowed'}, status=405)",
+        "detail": "botapp.views",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "mainbot.asgi",
+        "description": "mainbot.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "mainbot.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-+%4qte_c4ph(bv47*y9yxdh!%qlgy4h^i=j*mj^zkpm2jhz!1g'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-+%4qte_c4ph(bv47*y9yxdh!%qlgy4h^i=j*mj^zkpm2jhz!1g'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "ALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'botapp',",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'botapp',\n]\nMIDDLEWARE = [",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'mainbot.urls'",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "ROOT_URLCONF = 'mainbot.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'mainbot.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "mainbot.settings",
+        "description": "mainbot.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "mainbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "mainbot.urls",
+        "description": "mainbot.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('',include('botapp.urls') ),\n]",
+        "detail": "mainbot.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "mainbot.wsgi",
+        "description": "mainbot.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "mainbot.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainbot.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]
