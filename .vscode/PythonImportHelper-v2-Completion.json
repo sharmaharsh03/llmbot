@@ -289,7 +289,7 @@
         "kind": 2,
         "importPath": "botapp.handle_incoming",
         "description": "botapp.handle_incoming",
-        "peekOfCode": "def send_text_message(to, message):\n    # cache_key = f\"message_sent_{to}\"\n    # if cache.get(cache_key):\n    #     logger.info(f\"Duplicate message avoided for {to}. Skipping...\")\n    #     return\n    payload = {\n        \"messaging_product\": \"whatsapp\",\n        \"to\": to,\n        \"type\": \"text\",\n        \"text\": {\"body\": message}",
+        "peekOfCode": "def send_text_message(to, message):\n    payload = {\n        \"messaging_product\": \"whatsapp\",\n        \"to\": to,\n        \"type\": \"text\",\n        \"text\": {\"body\": message}\n    }\n    send_request_to_whatsapp(payload)\ndef menu_option(to):\n    cache_key = f\"message_sent_menu_{to}\"",
         "detail": "botapp.handle_incoming",
         "documentation": {}
     },

@@ -48,12 +48,12 @@ def handle_incoming_messages(request):
             contacts = messaging_event.get('value', {}).get('contacts', [{}])[0]
             name = contacts.get('profile', {}).get('name', '')
             wa_id=contacts.get('wa_id', '')
-            message_id = message.get("id")
-            # cache_key = f"processed_{message_id}"
-            # if cache.get(cache_key):
-            #     logger.info(f"Duplicate message {message_id} skipped.")
-            #     continue
-            # cache.set(cache_key, True, timeout=300)   
+            message_id = messaging_event.get("id")
+            cache_key = f"processed_{message_id}"
+            if cache.get(cache_key):
+                logger.info(f"Duplicate message {message_id} skipped.")
+                continue
+            cache.set(cache_key, True, timeout=300)   
             from_number = message.get('from')
             text = message.get('text', {}).get('body', '').strip().lower()
             interactive = message.get('interactive')
@@ -167,11 +167,7 @@ def menu_option(to):
 
 
 def send_text_message(to, message):
-    # cache_key = f"message_sent_{to}"
-    # if cache.get(cache_key):
-    #     logger.info(f"Duplicate message avoided for {to}. Skipping...")
-    #     return
-
+   
     payload = {
         "messaging_product": "whatsapp",
         "to": to,
