@@ -42,60 +42,80 @@ def handle_incoming_messages(request):
         logger.error("❌ Invalid JSON format")
         return JsonResponse({'error': 'Invalid JSON format'}, status=400)
 
-    processed_any = False  # track karega ki koi message process hua ya nahi
+    processed_any = False
 
     for entry in data.get('entry', []):
         for messaging_event in entry.get('changes', []):
-            message = messaging_event.get('value', {}).get('messages', [{}])[0]
-            contacts = messaging_event.get('value', {}).get('contacts', [{}])[0]
+            value = messaging_event.get('value', {})
+            
+            # Status updates ko skip
+            if value.get('statuses'):
+                logger.info("📊 Status update, skipping...")
+                continue
+            
+            messages = value.get('messages')
+            if not messages:
+                logger.info("ℹ️ No messages found")
+                continue
+            
+            message = messages[0]
+            contacts = value.get('contacts', [{}])[0]
             name = contacts.get('profile', {}).get('name', '')
             wa_id = contacts.get('wa_id', '')
-
-            if not message:
-                logger.warning("⚠️ No message found in change event")
-                continue
 
             message_id = message.get("id")
             if not message_id:
                 logger.warning("⚠️ No message_id found")
                 continue
 
-            logger.info(f"📩 New incoming message | id={message_id} | from={wa_id} | name={name}")
-
-            cache_key = f"processed_{message_id}"
-            if cache.get(cache_key):
-                logger.info(f"⏩ Duplicate message skipped | id={message_id}")
-                continue
-            cache.set(cache_key, True, timeout=300)
-
             from_number = message.get('from')
+            
+            logger.info(f"📩 Message received | id={message_id} | from={wa_id}")
+
+            # ✅ ONLY message_id based check (content check NAHI)
+            cache_key = f"processed_{message_id}"
+            
+            # Atomic operation to prevent race condition
+            was_added = cache.add(cache_key, True, timeout=300)
+            
+            if not was_added:
+                logger.info(f"⏩ Duplicate webhook (same message_id) | id={message_id}")
+                continue
+            
+            logger.info(f"✅ New message, processing | id={message_id}")
+
             text = message.get('text', {}).get('body', '').strip().lower()
             interactive = message.get('interactive')
 
             if text:
-                logger.info(f"💬 User sent text: {text}")
+                logger.info(f"💬 User text: {text}")
 
-            if text in ['hi', 'hello', 'hey']:
-                logger.info("👉 Greeting detected, sending menu")
-                menu_option(from_number)
-                processed_any = True
+            # Process message
+            try:
+                if text in ['hi', 'hello', 'hey']:
+                    logger.info("👉 Greeting detected, sending menu")
+                    menu_option(from_number)
+                    processed_any = True
 
-            elif interactive:
-                logger.info("👉 Interactive payload detected")
-                handle_interactive(from_number, interactive, name)
-                processed_any = True
+                elif interactive:
+                    logger.info("👉 Interactive payload detected")
+                    handle_interactive(from_number, interactive, name)
+                    processed_any = True
 
-            elif text:
-                logger.info("👉 Sending text to LLM API")
-                output = llm_api(text, from_number)
-                if output:
-                    ans = output.get("answer")
-                    send_text_message(from_number, f"{ans}")
-                    logger.info(f"✅ LLM reply sent: {ans}")
-                else:
-                    send_text_message(from_number, "No response from LLM API.")
-                    logger.warning("⚠️ LLM API returned no output")
-                processed_any = True
+                elif text:
+                    logger.info("👉 Sending text to LLM API")
+                    output = llm_api(text, from_number)
+                    if output:
+                        ans = output.get("answer")
+                        send_text_message(from_number, f"{ans}")
+                        logger.info(f"✅ LLM reply sent: {ans}")
+                    else:
+                        send_text_message(from_number, "No response from LLM API.")
+                        logger.warning("⚠️ LLM API returned no output")
+                    processed_any = True
+                    
+            except Exception as e:
+                logger.error(f"❌ Error processing message {message_id}: {e}")
 
     if processed_any:
         logger.info("🎯 Webhook processed successfully.")
@@ -103,7 +123,7 @@ def handle_incoming_messages(request):
     else:
         logger.info("ℹ️ No valid action taken for this webhook.")
         return JsonResponse({'status': 'no action taken'}, status=200)
-
+    
 def handle_interactive(from_number, interactive,name):
     list_reply = interactive.get('list_reply')
     if list_reply:
