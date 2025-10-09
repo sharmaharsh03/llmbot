@@ -37,10 +37,12 @@ def llm_api(data,id):
 def handle_incoming_messages(request):
     try:
         data = json.loads(request.body)
-        logger.info(f"Received data: {data}")
+        logger.info(f"✅ Webhook Raw Data: {data}")
     except json.JSONDecodeError:
-        logger.error("Invalid JSON format")
+        logger.error("❌ Invalid JSON format")
         return JsonResponse({'error': 'Invalid JSON format'}, status=400)
+
+    processed_any = False  # track karega ki koi message process hua ya nahi
 
     for entry in data.get('entry', []):
         for messaging_event in entry.get('changes', []):
@@ -50,15 +52,19 @@ def handle_incoming_messages(request):
             wa_id = contacts.get('wa_id', '')
 
             if not message:
+                logger.warning("⚠️ No message found in change event")
                 continue
 
             message_id = message.get("id")
             if not message_id:
+                logger.warning("⚠️ No message_id found")
                 continue
+
+            logger.info(f"📩 New incoming message | id={message_id} | from={wa_id} | name={name}")
 
             cache_key = f"processed_{message_id}"
             if cache.get(cache_key):
-                logger.info(f"Duplicate message {message_id} skipped.")
+                logger.info(f"⏩ Duplicate message skipped | id={message_id}")
                 continue
             cache.set(cache_key, True, timeout=300)
 
@@ -66,24 +72,37 @@ def handle_incoming_messages(request):
             text = message.get('text', {}).get('body', '').strip().lower()
             interactive = message.get('interactive')
 
+            if text:
+                logger.info(f"💬 User sent text: {text}")
+
             if text in ['hi', 'hello', 'hey']:
+                logger.info("👉 Greeting detected, sending menu")
                 menu_option(from_number)
+                processed_any = True
 
             elif interactive:
+                logger.info("👉 Interactive payload detected")
                 handle_interactive(from_number, interactive, name)
+                processed_any = True
 
             elif text:
+                logger.info("👉 Sending text to LLM API")
                 output = llm_api(text, from_number)
                 if output:
                     ans = output.get("answer")
                     send_text_message(from_number, f"{ans}")
+                    logger.info(f"✅ LLM reply sent: {ans}")
                 else:
                     send_text_message(from_number, "No response from LLM API.")
+                    logger.warning("⚠️ LLM API returned no output")
+                processed_any = True
 
-    logger.info("Webhook processed successfully.")
-    return JsonResponse({'status': 'success'}, status=200)
-
-    return JsonResponse({'status': 'no action taken'}, status=200)
+    if processed_any:
+        logger.info("🎯 Webhook processed successfully.")
+        return JsonResponse({'status': 'success'}, status=200)
+    else:
+        logger.info("ℹ️ No valid action taken for this webhook.")
+        return JsonResponse({'status': 'no action taken'}, status=200)
 
 def handle_interactive(from_number, interactive,name):
     list_reply = interactive.get('list_reply')
