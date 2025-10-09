@@ -64,7 +64,7 @@ def handle_incoming_messages(request):
             wa_id = contacts.get('wa_id', '')
 
             message_id = message.get("id")
-            timestamp = message.get("timestamp")  # ✅ Timestamp bhi lo
+            timestamp = message.get("timestamp")
             
             if not message_id:
                 logger.warning("⚠️ No message_id found")
@@ -74,14 +74,14 @@ def handle_incoming_messages(request):
             
             logger.info(f"📩 Message | id={message_id} | timestamp={timestamp} | from={wa_id}")
 
-            # ✅ Cache key mein message_id + timestamp dono use karo
-            cache_key = f"processed_{message_id}_{timestamp}"
+            # ✅ Sirf message_id se check karo (timestamp hata diya)
+            cache_key = f"processed_{message_id}"
             
             # Atomic operation
             was_added = cache.add(cache_key, True, timeout=300)
             
             if not was_added:
-                logger.info(f"⏩ Duplicate webhook | id={message_id} | ts={timestamp}")
+                logger.info(f"⏩ Duplicate webhook | id={message_id}")
                 continue
             
             logger.info(f"✅ Processing new message | id={message_id}")
@@ -175,49 +175,6 @@ def handle_list_message(from_number,list_reply):
         
     return JsonResponse({'status': 'no action taken'}, status=200)
 
-def menu_option(to):
-    # if cache.get(f"message_sent_{to}"):
-    #     logger.info(f"Message already sent to {to}. Skipping...")
-    #     return
-
-    payload = {
-        "messaging_product": "whatsapp", 
-        "recipient_type": "individual",
-        "to":to,
-        "type": "interactive",
-        "interactive": {
-            "type": "list",
-            
-            "body": {
-                "text": f"HI {to}\nPlease select an option from the menu:"
-            },
-            "action": {
-                "button": "Main Menu",
-                "sections": [
-                    {
-                        "title": "Menu",
-                        "rows": [
-                            {
-                                "id": "list_1",
-                                "title": "eAuctions",
-                            },
-                            {
-                                "id": "list_2",
-                                "title": "Licenses",
-                            },
-                            {
-                                "id": "list_3",
-                                "title": "Citizen Services",
-                            }
-                        ]
-                    }
-                ]
-            }
-        }
-    }
-    send_request_to_whatsapp(payload)
-
-
 def send_text_message(to, message):
    
     payload = {
@@ -230,11 +187,7 @@ def send_text_message(to, message):
 
 
 def menu_option(to):
-    cache_key = f"message_sent_menu_{to}"
-    if cache.get(cache_key):
-        logger.info(f"Menu already sent to {to}. Skipping...")
-        return
-
+    # ✅ CACHE CHECK HATAYA - Ab har baar menu jayega
     payload = {
         "messaging_product": "whatsapp", 
         "recipient_type": "individual",
@@ -261,7 +214,7 @@ def menu_option(to):
         }
     }
     send_request_to_whatsapp(payload)
-    cache.set(cache_key, True, timeout=30)
+    # ✅ Cache set bhi nahi karenge ab
 
 def send_request_to_whatsapp(payload):
     try:
@@ -272,4 +225,3 @@ def send_request_to_whatsapp(payload):
         logger.info(f"Message sent: {response.json()}")
     except requests.RequestException as e:
         logger.error(f"Message failed: {e}, Response: {e.response.text if e.response else 'No response'}")
-
