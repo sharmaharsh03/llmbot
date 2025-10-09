@@ -47,32 +47,42 @@ def handle_incoming_messages(request):
             message = messaging_event.get('value', {}).get('messages', [{}])[0]
             contacts = messaging_event.get('value', {}).get('contacts', [{}])[0]
             name = contacts.get('profile', {}).get('name', '')
-            wa_id=contacts.get('wa_id', '')
-            message_id = messaging_event.get("id")
+            wa_id = contacts.get('wa_id', '')
+
+            if not message:
+                continue
+
+            message_id = message.get("id")
+            if not message_id:
+                continue
+
             cache_key = f"processed_{message_id}"
             if cache.get(cache_key):
                 logger.info(f"Duplicate message {message_id} skipped.")
                 continue
-            cache.set(cache_key, True, timeout=300)   
+            cache.set(cache_key, True, timeout=300)
+
             from_number = message.get('from')
             text = message.get('text', {}).get('body', '').strip().lower()
             interactive = message.get('interactive')
-            if text in ['hi','hello','hey']:
+
+            if text in ['hi', 'hello', 'hey']:
                 menu_option(from_number)
-                return JsonResponse({'status': 'success'}, status=200)
 
             elif interactive:
-                handle_interactive(from_number, interactive,name)
-                return JsonResponse({'status': 'success'}, status=200)
-            else:
-                 output= llm_api(text,from_number)
-                 if output:
-                     print(f"output---{output}")
-                     ans=output.get("answer")
-                     send_text_message(from_number,f"{ans}")
-                 else:
-                     send_text_message(from_number,f"No response from LLM API.")    
-    logger.info("No valid message found in the request.")
+                handle_interactive(from_number, interactive, name)
+
+            elif text:
+                output = llm_api(text, from_number)
+                if output:
+                    ans = output.get("answer")
+                    send_text_message(from_number, f"{ans}")
+                else:
+                    send_text_message(from_number, "No response from LLM API.")
+
+    logger.info("Webhook processed successfully.")
+    return JsonResponse({'status': 'success'}, status=200)
+
     return JsonResponse({'status': 'no action taken'}, status=200)
 
 def handle_interactive(from_number, interactive,name):
