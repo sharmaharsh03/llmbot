@@ -64,31 +64,34 @@ def handle_incoming_messages(request):
             wa_id = contacts.get('wa_id', '')
 
             message_id = message.get("id")
+            timestamp = message.get("timestamp")  # ✅ Timestamp bhi lo
+            
             if not message_id:
                 logger.warning("⚠️ No message_id found")
                 continue
 
             from_number = message.get('from')
             
-            logger.info(f"📩 Message received | id={message_id} | from={wa_id}")
+            logger.info(f"📩 Message | id={message_id} | timestamp={timestamp} | from={wa_id}")
 
-            # ✅ ONLY message_id based check (content check NAHI)
-            cache_key = f"processed_{message_id}"
+            # ✅ Cache key mein message_id + timestamp dono use karo
+            cache_key = f"processed_{message_id}_{timestamp}"
             
-            # Atomic operation to prevent race condition
+            # Atomic operation
             was_added = cache.add(cache_key, True, timeout=300)
             
             if not was_added:
-                logger.info(f"⏩ Duplicate webhook (same message_id) | id={message_id}")
+                logger.info(f"⏩ Duplicate webhook | id={message_id} | ts={timestamp}")
                 continue
             
-            logger.info(f"✅ New message, processing | id={message_id}")
+            logger.info(f"✅ Processing new message | id={message_id}")
 
-            text = message.get('text', {}).get('body', '').strip().lower()
-            interactive = message.get('interactive')
-
+            text = message.get('text', {}).get('body', '')
             if text:
+                text = text.strip().lower()
                 logger.info(f"💬 User text: {text}")
+
+            interactive = message.get('interactive')
 
             # Process message
             try:
@@ -123,7 +126,7 @@ def handle_incoming_messages(request):
     else:
         logger.info("ℹ️ No valid action taken for this webhook.")
         return JsonResponse({'status': 'no action taken'}, status=200)
-    
+      
 def handle_interactive(from_number, interactive,name):
     list_reply = interactive.get('list_reply')
     if list_reply:
