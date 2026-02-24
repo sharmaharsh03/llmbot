@@ -14,7 +14,7 @@ WHATSAPP_API_URL="https://graph.facebook.com/v22.0/720254477847692/messages"
 WHATSAPP_TOKEN="EAFamCrwshVkBPUSZBfGDgqYsbVLoIZBlLMYaxU2Dnco4l6q4wYnGKfFd19ZBb2wbnR0bXcOaZCh1sbqhKF8HZBUzbvR26E0Tl3g1MmcakOaN8uZCF7r8Rzb1aTuqNDvZAvnqn0AFBo9yVUdJ9RZCbeCyBZCUinCZBpwDPCpGFgZAXTMCw3hboikezY1w2i5jHAk5HZAVrwZDZD"
 
 def llm_api(data,id):
-    payload={
+    payload={ 
         "token": "izDIEr98aBF24jJ6FB2Z4fle",
         "id": id,
         "question": data
@@ -129,7 +129,7 @@ def handle_incoming_messages(request):
       
 def handle_interactive(from_number, interactive,name):
     list_reply = interactive.get('list_reply')
-    if list_reply:
+    if list_reply:   
         handle_list_message(from_number,list_reply)
         return JsonResponse({'status': 'success'}, status=200)
     button_id = interactive.get('button_reply', {}).get('id')
@@ -138,10 +138,19 @@ def handle_interactive(from_number, interactive,name):
     return JsonResponse({'status': 'no action taken'}, status=200)
 
 def handle_list_message(from_number,list_reply):
-    selected_id = list_reply.get('id')
+    selected_id = list_reply.get('id') 
     title=list_reply.get('title')
     if title:
         logger.info(f"title_____{title}__length--{len(title)}")
+    if selected_id == "list_0":
+        logger.info(f"title_____{title}__length--{len(title)}")
+        output= llm_api(title,from_number)
+        if output:
+            print(f"output---{output}")
+            ans=output.get("answer")
+            send_text_message(from_number,f"{ans}")
+        else:
+            send_text_message(from_number,f"No response from LLM API.")    
     if selected_id == "list_1":
         logger.info(f"title_____{title}__length--{len(title)}")
         output= llm_api(title,from_number)
@@ -187,7 +196,6 @@ def send_text_message(to, message):
 
 
 def menu_option(to):
-    # ✅ CACHE CHECK HATAYA - Ab har baar menu jayega
     payload = {
         "messaging_product": "whatsapp", 
         "recipient_type": "individual",
@@ -204,6 +212,7 @@ def menu_option(to):
                     {
                         "title": "Menu",
                         "rows": [
+                            {"id": "list_0","title": "Mukh Mantri Sehat Yojna"},
                             {"id": "list_1","title": "eAuctions"},
                             {"id": "list_2","title": "Licenses"},
                             {"id": "list_3","title": "Citizen Services"}
@@ -214,7 +223,6 @@ def menu_option(to):
         }
     }
     send_request_to_whatsapp(payload)
-    # ✅ Cache set bhi nahi karenge ab
 
 def send_request_to_whatsapp(payload):
     try:
