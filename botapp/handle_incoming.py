@@ -111,6 +111,7 @@ def handle_incoming_messages(request):
                 if text in ['hi', 'hello', 'hey']:
                     logger.info("👉 Greeting detected, sending menu")
                     menu_option(from_number)
+                    marico_template(from_number)
                     processed_any = True
 
                 elif interactive:
@@ -204,6 +205,48 @@ def send_text_message(to, message):
         "to": to,
         "type": "text",
         "text": {"body": message}
+    }
+    send_request_to_whatsapp(payload)
+
+def bookingcall(to):
+    payload={
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": to,
+            "type": "interactive",
+            "interactive" : {
+                "type" : "voice_call",
+                "body" : {
+                "text": "You can call us on WhatsApp now for faster service!"
+                },
+                "action": {
+                "name": "voice_call",
+                "parameters": {
+                    "display_text": "Call",
+                }
+                }
+            }
+            }
+    send_request_to_whatsapp(payload)
+
+def marico_template(to):
+    if cache.get(f"message_sent_{to}"):
+        logger.info(f"Message already sent to {to}. Skipping...")
+        return
+
+    payload = {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": to,
+        "type": "template",
+        "template": {
+            "name": "book_a_call_",
+            "language": {
+            "code": "en"
+            },
+            "components": [
+            ]
+        }
     }
     send_request_to_whatsapp(payload)
 
