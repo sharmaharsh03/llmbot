@@ -99,8 +99,8 @@ def handle_incoming_messages(request):
                     print(f"output---{output}")
                     ans=output.get("answer")
                     send_text_message(from_number,f"{ans}")
-        else:
-            send_text_message(from_number,f"No response from LLM API.")   
+                else:
+                    send_text_message(from_number,f"No response from LLM API.")   
                  
                   
 
