@@ -62,7 +62,6 @@ def handle_incoming_messages(request):
             contacts = value.get('contacts', [{}])[0]
             name = contacts.get('profile', {}).get('name', '')
             wa_id = contacts.get('wa_id', '')
-
             message_id = message.get("id")
             timestamp = message.get("timestamp")
             
@@ -90,6 +89,20 @@ def handle_incoming_messages(request):
             if text:
                 text = text.strip().lower()
                 logger.info(f"💬 User text: {text}")
+                
+            elif location := message.get('location'):
+                latitude = location.get('latitude')
+                longitude = location.get('longitude')
+                message = f"{latitude}, {longitude}"  
+                output= llm_api(message,from_number)
+                if output:
+                    print(f"output---{output}")
+                    ans=output.get("answer")
+                    send_text_message(from_number,f"{ans}")
+        else:
+            send_text_message(from_number,f"No response from LLM API.")   
+                 
+                  
 
             interactive = message.get('interactive')
 
